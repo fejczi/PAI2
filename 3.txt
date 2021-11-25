@@ -1,0 +1,53 @@
+3. fizyczny
+@startuml
+entity User{
+* ID_user: int
+* name: text
+* password: text
+* created_at: date
+}
+
+entity image {
+* ID_image: int
+* image_name: text
+* uploader: text
+* created_at: date
+* last_edited: date
+* description: text
+}
+
+entity comment {
+* ID_comment: int
+*creator: text
+*contents: text
+*date_posted: date
+}
+
+entity tag {
+*ID_tag: int
+*title: text
+}
+
+entity tag_photo {
+*ID_tag_photo: int
+*tag_id: int
+*photo_id: int
+}
+
+entity album {
+*ID_album: int
+*album_name: text
+*creator: text
+*description: text
+*created_at: date
+*last_edited: date
+}
+
+image --o{ tag_photo
+tag --o{ tag_photo
+image }|-- album
+image --o{ comment
+User --o{ album
+User --o{ comment
+
+@enduml

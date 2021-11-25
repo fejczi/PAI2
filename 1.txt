@@ -1,0 +1,46 @@
+1. konceptualny
+@startuml
+entity User{
+* ID_user
+* name
+* password
+* created_at
+}
+
+entity image {
+* ID_image
+* image_name
+* uploader
+* created_at
+* last_edited
+* description
+}
+
+entity comment {
+* ID_comment
+*creator
+*contents
+*date_posted
+}
+
+entity tag {
+*ID_tag
+*title
+}
+
+entity album {
+*ID_album
+*album_name
+*creator
+*description
+*created_at
+*last_edited
+}
+
+image --o{ tag
+image }|-- album
+image --o{ comment
+User --o{ album
+User --o{ comment
+
+@enduml
