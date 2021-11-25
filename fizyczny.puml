@@ -1,4 +1,3 @@
-2. logiczny
 @startuml
 entity User{
 * ID_user: int
@@ -28,6 +27,12 @@ entity tag {
 *title: text
 }
 
+entity tag_photo {
+*ID_tag_photo: int
+*tag_id: int
+*photo_id: int
+}
+
 entity album {
 *ID_album: int
 *album_name: text
@@ -37,7 +42,8 @@ entity album {
 *last_edited: date
 }
 
-image --o{ tag
+image --o{ tag_photo
+tag --o{ tag_photo
 image }|-- album
 image --o{ comment
 User --o{ album

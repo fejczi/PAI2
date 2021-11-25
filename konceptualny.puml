@@ -1,4 +1,3 @@
-1. konceptualny
 @startuml
 entity User{
 * ID_user
